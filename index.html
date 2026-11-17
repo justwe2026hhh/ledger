@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>持仓分析台账 · 中国电影 600977 / 长白山 603099</title>
+<style>
+  :root{
+    --bg:#0f1216; --panel:#161b22; --line:#262d36; --txt:#d7dee8;
+    --dim:#8b97a6; --red:#ff5c5c; --green:#3ddc84; --amber:#ffb020; --blue:#4aa3ff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;padding:28px 20px 60px;background:var(--bg);color:var(--txt);
+       font:14px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+  h1{font-size:22px;margin:0 0 6px;letter-spacing:.5px}
+  .sub{color:var(--dim);font-size:13px;margin-bottom:22px}
+  .cards{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+  .card{flex:1 1 190px;background:var(--panel);border:1px solid var(--line);
+        border-radius:10px;padding:14px 16px}
+  .card .k{color:var(--dim);font-size:12px;margin-bottom:6px}
+  .card .v{font-size:19px;font-weight:600}
+  .up{color:var(--red)} .down{color:var(--green)} .flat{color:var(--amber)}
+
+  /* ---- tabs ---- */
+  .tabin{display:none}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:-1px}
+  .tabs label{cursor:pointer;padding:10px 18px;border-radius:10px 10px 0 0;
+    background:#131920;border:1px solid var(--line);border-bottom:none;
+    color:var(--dim);font-size:13.5px;font-weight:600;user-select:none;
+    transition:background .15s,color .15s}
+  .tabs label:hover{background:#1a2230;color:#bfcbd9}
+  .tabs label .cnt{display:inline-block;margin-left:7px;padding:0 7px;border-radius:9px;
+    background:#232c38;color:#9fb0c4;font-size:11.5px;font-weight:700}
+  #d13:checked~.tabs label[for="d13"],
+  #d16:checked~.tabs label[for="d16"],
+  #d17:checked~.tabs label[for="d17"]{background:var(--panel);color:#fff;
+    border-top:2px solid var(--blue)}
+  #d13:checked~.tabs label[for="d13"] .cnt,
+  #d16:checked~.tabs label[for="d16"] .cnt,
+  #d17:checked~.tabs label[for="d17"] .cnt{background:#1d3a5c;color:#8ec5ff}
+  .panel{display:none}
+  #d13:checked~#p13,#d16:checked~#p16,#d17:checked~#p17{display:block}
+
+  table{width:100%;border-collapse:collapse;background:var(--panel);
+        border:1px solid var(--line);border-radius:0 0 10px 10px;overflow:hidden}
+  thead th{background:#1b222b;color:var(--dim);font-weight:600;font-size:12.5px;
+           text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+  tbody td{padding:11px 12px;border-bottom:1px solid #1e252d;vertical-align:top;font-size:13px}
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:hover{background:#1a212a}
+  .tm{white-space:nowrap;font-variant-numeric:tabular-nums;color:#aab6c4}
+  .tag{display:inline-block;padding:1px 7px;border-radius:5px;font-size:11.5px;
+       white-space:nowrap;font-weight:600}
+  .t-an{background:#1d2b3f;color:var(--blue)}
+  .t-al{background:#2b1a1a;color:var(--red)}
+  .t-cl{background:#1b2a20;color:var(--green)}
+  .t-md{background:#2a2418;color:var(--amber)}
+  .t-sys{background:#241d2e;color:#b892ff}
+  .t-skip{background:#2a2a2a;color:#98a4b2}
+  .num{font-variant-numeric:tabular-nums}
+  .hl{background:#3a1f1f;color:#ff8a8a;padding:0 4px;border-radius:3px;font-weight:600}
+  .hl2{background:#3a3018;color:#ffcc66;padding:0 4px;border-radius:3px;font-weight:600}
+  a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #2f5c8a}
+  a:hover{color:#7cc0ff;border-bottom-color:#7cc0ff}
+  h2{font-size:15px;margin:34px 0 12px;color:#c3cddb;
+     border-left:3px solid var(--blue);padding-left:9px}
+  .note{color:var(--dim);font-size:12.5px;margin-top:10px;line-height:1.85}
+  .warn{background:#1e1a12;border:1px solid #3d3118;border-radius:9px;
+        padding:13px 16px;margin:14px 0 0;font-size:12.8px;color:#d9c9a8;line-height:1.85}
+  .warn b{color:#ffcc66}
+  .legend{margin:0 0 14px;color:var(--dim);font-size:12px}
+</style>
+</head>
+<body>
+
+<h1>持仓分析台账</h1>
+<div class="sub">中国电影 600977 ｜ 长白山 603099 ｜ 2026-11-13 → 2026-11-17</div>
+
+<div class="cards">
+  <div class="card"><div class="k">中国电影 11-13收 → 11-17 10:00</div>
+    <div class="v">17.05 → 15.94 <span class="down">-6.51%</span></div></div>
+  <div class="card"><div class="k">长白山 11-13收 → 11-17 10:00</div>
+    <div class="v">36.30 → 35.58 <span class="down">-1.98%</span></div></div>
+  <div class="card"><div class="k">上证 / 创业板 同期</div>
+    <div class="v">-1.75% / <span class="down">-5.44%</span></div></div>
+  <div class="card"><div class="k">组合仓位（11-13 截图）</div>
+    <div class="v">58.9% <span class="flat">· 现金 41.1%</span></div></div>
+</div>
+
+<div class="legend">标签：
+  <span class="tag t-an">分析</span> 研判　
+  <span class="tag t-al">预警</span> 触发规则　
+  <span class="tag t-cl">收盘</span> 收盘/盘后数据　
+  <span class="tag t-md">方法</span> 方法论　
+  <span class="tag t-sys">系统</span> 监控搭建　
+  <span class="tag t-skip">跳过</span> 失效未执行
+</div>
+
+<input class="tabin" type="radio" name="day" id="d13" checked>
+<input class="tabin" type="radio" name="day" id="d16">
+<input class="tabin" type="radio" name="day" id="d17">
+<nav class="tabs">
+  <label for="d13">11-13 周五 <span class="cnt">11</span></label>
+  <label for="d16">11-16 周一 <span class="cnt">2</span></label>
+  <label for="d17">11-17 周二 <span class="cnt">2</span></label>
+</nav>
+
+<!-- ================= 11-13 ================= -->
+<section class="panel" id="p13">
+<table>
+<thead><tr>
+  <th style="width:64px">时间</th><th style="width:58px">类型</th><th style="width:82px">标的</th>
+  <th>关键数据</th><th style="width:33%">结论 / 动作</th><th style="width:78px">来源</th>
+</tr></thead>
+<tbody>
+<tr><td class="tm">12:46</td><td><span class="tag t-an">分析</span></td><td>中国电影</td>
+  <td>17.05 <span class="up">涨停 +10.00%</span>；封单 17.5 万手（2.99 亿）；半日成交 15.31 亿；换手 4.91%；均价 16.69</td>
+  <td>17.05 撞 2026 年 1—2 月套牢区（17.22—17.47）下沿；建议先减 1/3—1/2</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">13:05</td><td><span class="tag t-an">分析</span></td><td>中国电影</td>
+  <td>复联5 内地定档 <b>12/16</b>（领先北美 2 天）；流浪地球3 定档 <b>2027 春节</b>（约 85 天后）</td>
+  <td>纠正“还有 15 个月”的错误；催化剂近在眼前，<span class="hl2">减仓幅度下调</span>至 1/4—1/3</td>
+  <td><a href="https://m.gmw.cn/toutiao/2026-10/12/content_1304574568.htm" target="_blank">光明网</a></td></tr>
+
+<tr><td class="tm">13:32</td><td><span class="tag t-an">分析</span></td><td>组合</td>
+  <td>总资产 320,256.85；仓位 <b>58.9%</b>；中影 7200 股 / 成本 <b>11.633</b> / +46.56%；长白山 1800 股 / 成本 36.52 / +0.22%</td>
+  <td>真实成本远低于口述的 14，安全垫厚；组合结构健康，只做优化不做恐慌减仓</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh603099" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">14:00</td><td><span class="tag t-an">分析</span></td><td>长白山</td>
+  <td>36.78 <span class="down">-1.84%</span>；量能萎缩至 5 日均量 <b>0.37 倍</b>；60 日区间 10.8% 分位；MA20 37.29 / MA60 39.12</td>
+  <td>缩量阴跌、抛压衰竭但不加仓；成本 36.52 压在 35.68 上方；<span class="hl2">破 35.68 减 900 股</span></td>
+  <td><a href="https://stock.finance.sina.com.cn/stock/view/paper.php?symbol=sh000001&amp;reportid=847163800701&amp;autocallup=no&amp;isfromsina=no" target="_blank">研报</a></td></tr>
+
+<tr><td class="tm">14:36</td><td><span class="tag t-al">预警</span></td><td>中国电影</td>
+  <td>封单 <b>2.99 亿 → 0.65 亿（-78%）</b>；内盘反超外盘（602,230 vs 522,978）；长白山 36.18 已破成本</td>
+  <td>板上派发迹象确认，减仓理由从“位置高”升级为“资金在走”；长白山由盈转亏</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh603099" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">14:49</td><td><span class="tag t-al">预警</span></td><td>中国电影</td>
+  <td>封单 28,064 手；<b>封单比 2.5%</b>（健康区 10—20%）</td>
+  <td><span class="hl">⚠R1 虚封</span> → 挂 17.05 卖 2,400 股</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">15:00</td><td><span class="tag t-cl">收盘</span></td><td>中国电影</td>
+  <td>收 17.05 涨停，封单仅 <b>16,877 手（1.49%）</b>；<b>炸板 5 次</b>；首封 10:08、末封 13:29；成交 18.99 亿</td>
+  <td>定性为“<span class="hl">烂板</span>”；同期文投封单 2.46 亿，为其 8.5 倍</td>
+  <td><a href="https://push2ex.eastmoney.com/getTopicZTPool?ut=7eea3edcaed734bea9cbfc24409ed989&amp;dpt=wz.ztzt&amp;Pageindex=0&amp;pagesize=1&amp;sort=lbc%3Adesc&amp;date=20261113" target="_blank">涨停池</a></td></tr>
+
+<tr><td class="tm">15:15</td><td><span class="tag t-md">方法</span></td><td>—</td>
+  <td>六层框架：宏观 → 大盘情绪 → 板块轮动 → 个股基本面 → 筹码资金 → 执行风控</td>
+  <td>识别三大缺口：<b>情绪温度、筹码结构、事件日历</b>；给出 ATR 头寸法（7,200 股超出上限 27%）</td>
+  <td><a href="https://stock.finance.sina.com.cn/stock/view/paper.php?symbol=sh000001&amp;reportid=808927980313&amp;autocallup=no&amp;isfromsina=no" target="_blank">研报</a></td></tr>
+
+<tr><td class="tm">16:30</td><td><span class="tag t-sys">系统</span></td><td>—</td>
+  <td>验证 8 个接口：行情 / 指数 / 涨停池 / 炸板池 / 龙虎榜 / 解禁 / 公告</td>
+  <td>搭建盘中巡检（30 次/天）+ 18:00 盘后复盘；两票 3 个月内均无解禁</td>
+  <td><a href="https://np-anotice-stock.eastmoney.com/api/security/ann?sr=-1&amp;page_size=6&amp;page_index=1&amp;ann_type=A&amp;client_source=web&amp;stock_list=600977" target="_blank">公告</a></td></tr>
+
+<tr><td class="tm">18:00</td><td><span class="tag t-cl">收盘</span></td><td>组合</td>
+  <td>涨停 37 / 炸板 21 / <b>炸板率 36.2%</b> / 最高 4 板（天普股份·汽车零部）；上证 -0.59%、创业板 -3.32%；成交 1.66 万亿</td>
+  <td>判定 <span class="hl">退潮 + 非主线</span>；查出“董秘辞任”“变更会计所”两条治理风险</td>
+  <td><a href="https://push2ex.eastmoney.com/getTopicZBPool?ut=7eea3edcaed734bea9cbfc24409ed989&amp;dpt=wz.ztzt&amp;Pageindex=0&amp;pagesize=1&amp;sort=fbt%3Aasc&amp;date=20261113" target="_blank">炸板池</a></td></tr>
+
+<tr><td class="tm">20:22</td><td><span class="tag t-an">分析</span></td><td>中国电影</td>
+  <td>预案：按低开幅度分 5 档（0—2% / 2—4% / 4—6% / 6—9% / 近跌停）；先看文投 9:25 竞价定板块</td>
+  <td>低开 0—2% 不动；跌破 16.71 且 15 分钟不收回 → 减 1/3；最坏跌停仍 +31.9%</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh600715" target="_blank">行情</a></td></tr>
+</tbody>
+</table>
+</section>
+
+<!-- ================= 11-16 ================= -->
+<section class="panel" id="p16">
+<table>
+<thead><tr>
+  <th style="width:64px">计划时间</th><th style="width:58px">类型</th><th>实际投递</th>
+  <th style="width:36%">状态 / 内容</th><th style="width:78px">来源</th>
+</tr></thead>
+<tbody>
+<tr><td class="tm">09:30—14:50</td><td><span class="tag t-skip">跳过</span></td>
+  <td>30 次巡检 → 合并为 <b>1 条</b>（14:50 那次），<b>19:06</b> 才送达</td>
+  <td>送达时已收盘 4 小时，数据失效，<b>未执行</b></td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977" target="_blank">行情</a></td></tr>
+<tr><td class="tm">18:00</td><td><span class="tag t-cl">收盘</span></td>
+  <td><b>19:06</b> 送达（延迟 66 分钟）</td>
+  <td>中影 <b>16.72 -1.94%</b>（开 17.00 / 高 17.34 / 低 16.40）；长白山 <b>35.63 -1.85%</b>；涨停 32 / 炸板 16 / 33.3% / 最高 4 板；创业板 <b>-4.37%</b>、科创50 -5.16%；成交 1.48 万亿。<br><span class="hl">长白山收盘破 35.68 → R8 触发，减 900 股</span></td>
+  <td><a href="https://push2ex.eastmoney.com/getTopicZTPool?ut=7eea3edcaed734bea9cbfc24409ed989&amp;dpt=wz.ztzt&amp;Pageindex=0&amp;pagesize=1&amp;sort=lbc%3Adesc&amp;date=20261116" target="_blank">涨停池</a></td></tr>
+</tbody>
+</table>
+
+<div class="warn">
+<b>为什么 11-16 只有 2 条，而不是 30 条？</b><br>
+任务本身没坏（状态 active，今天 10:00 准点投递）。原因是<b>投递折叠</b>：<br>
+① 这两条定时任务都投递到<b>当前这个会话</b>，同会话的投递是<b>串行排队</b>的——上一回合没结束，新的 occurrence 只能排队；<br>
+② 11-13 20:22 之后会话一直空闲到 11-16 19:06（周末＋周一白天无人对话），期间 30 次巡检全部堆在队列里；<br>
+③ 队列放行时<b>只保留最近一条</b>（即 14:50），其余 29 条直接丢弃；<br>
+④ 18:00 复盘同样排队，所以 19:06 才送达（比计划晚 66 分钟）。<br>
+<b>结论：</b>只要交易时段你在会话里持续有交互，投递就是准点的（今天 10:00 分秒不差）。折叠只发生在长时间无人值守时。
+</div>
+</section>
+
+<!-- ================= 11-17 ================= -->
+<section class="panel" id="p17">
+<table>
+<thead><tr>
+  <th style="width:64px">时间</th><th style="width:58px">类型</th><th style="width:82px">标的</th>
+  <th>关键数据</th><th style="width:33%">结论 / 动作</th><th style="width:78px">来源</th>
+</tr></thead>
+<tbody>
+<tr><td class="tm">09:58</td><td><span class="tag t-al">预警</span></td><td>组合</td>
+  <td>中影 <b>16.04 -4.07%</b>（低 15.91，破 16.20）；文投 <b>3.37 跌停 -9.89%</b>（卖一 254 万手）；横店 <b>18.90 跌停 -10.00%</b>；长白山 35.47</td>
+  <td><span class="hl">⚠R4 中影减半</span>；⚠R12 龙头崩塌；⚠R8 长白山减 900 股；剩余中影止损上移 15.50</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh600715,sh603103" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">10:00</td><td><span class="tag t-al">预警</span></td><td>组合</td>
+  <td>上证 3574.93(-0.77%) 创业板 2297.64(-0.96%)；中影 <b>15.94 -4.67%</b>；长白山 35.58（微反弹）；文投/横店仍跌停</td>
+  <td><b>无新触发</b>（R4/R12/R8 已于 09:58 报出，不重复报警）；中影距 15.50（R5 再减半）仅 <b>2.8%</b></td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh603099" target="_blank">行情</a></td></tr>
+</tbody>
+</table>
+</section>
+
+<h2>关键价位演变</h2>
+<table>
+<thead><tr><th>标的</th><th>11-13 收盘</th><th>11-16 收盘</th><th>11-17 10:00</th><th>防守位</th><th>状态</th></tr></thead>
+<tbody>
+<tr><td>中国电影 600977</td><td class="num">17.05 <span class="up">涨停</span></td>
+  <td class="num">16.72 <span class="down">-1.94%</span></td><td class="num">15.94 <span class="down">-4.67%</span></td>
+  <td class="num">16.20 <span class="hl">已破</span>；下一档 15.50</td><td><span class="hl">减半执行</span></td></tr>
+<tr><td>长白山 603099</td><td class="num">36.30 <span class="down">-3.12%</span></td>
+  <td class="num">35.63 <span class="down">-1.85%</span></td><td class="num">35.58 <span class="down">-0.14%</span></td>
+  <td class="num">35.68 <span class="hl">已破</span>；下一档 34.35</td><td><span class="hl">减 900 股执行</span></td></tr>
+<tr><td>文投控股 600715（龙头）</td><td class="num">3.40 <span class="up">涨停</span></td>
+  <td class="num">3.74 <span class="up">涨停</span></td><td class="num">3.37 <span class="down">跌停</span></td>
+  <td class="num">—</td><td><span class="hl">板块终结信号</span></td></tr>
+<tr><td>横店影视 603103</td><td class="num">19.31 <span class="up">涨停</span></td>
+  <td class="num">21.00 <span class="up">+8.75%</span></td><td class="num">18.90 <span class="down">跌停</span></td>
+  <td class="num">—</td><td><span class="hl">炸板→跌停</span></td></tr>
+</tbody>
+</table>
+
+<h2>接口清单（点击查最新）</h2>
+<div class="note">
+  · 实时行情：<a href="https://qt.gtimg.cn/q=sh600977,sh603099,sh600715,sh601595,sh603103,sh600593" target="_blank">6 只持仓+前导</a>　
+  · 大盘指数：<a href="https://qt.gtimg.cn/q=s_sh000001,s_sz399001,s_sz399006,s_sh000688" target="_blank">四大指数</a><br>
+  · 涨停池：<a href="https://push2ex.eastmoney.com/getTopicZTPool?ut=7eea3edcaed734bea9cbfc24409ed989&amp;dpt=wz.ztzt&amp;Pageindex=0&amp;pagesize=60&amp;sort=fbt%3Aasc&amp;date=20261117" target="_blank">今日涨停</a>　
+  · 炸板池：<a href="https://push2ex.eastmoney.com/getTopicZBPool?ut=7eea3edcaed734bea9cbfc24409ed989&amp;dpt=wz.ztzt&amp;Pageindex=0&amp;pagesize=60&amp;sort=fbt%3Aasc&amp;date=20261117" target="_blank">今日炸板</a><br>
+  · 龙虎榜：<a href="https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_DAILYBILLBOARD_DETAILSNEW&amp;columns=ALL&amp;filter=(SECURITY_CODE%3D%22600977%22)&amp;pageNumber=1&amp;pageSize=5&amp;sortColumns=TRADE_DATE&amp;sortTypes=-1&amp;source=WEB&amp;client=WEB" target="_blank">中国电影</a>　
+  <a href="https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_DAILYBILLBOARD_DETAILSNEW&amp;columns=ALL&amp;filter=(SECURITY_CODE%3D%22603099%22)&amp;pageNumber=1&amp;pageSize=5&amp;sortColumns=TRADE_DATE&amp;sortTypes=-1&amp;source=WEB&amp;client=WEB" target="_blank">长白山</a><br>
+  · 公告流：<a href="https://np-anotice-stock.eastmoney.com/api/security/ann?sr=-1&amp;page_size=10&amp;page_index=1&amp;ann_type=A&amp;client_source=web&amp;stock_list=600977" target="_blank">中国电影</a>　
+  <a href="https://np-anotice-stock.eastmoney.com/api/security/ann?sr=-1&amp;page_size=10&amp;page_index=1&amp;ann_type=A&amp;client_source=web&amp;stock_list=603099" target="_blank">长白山</a>
+</div>
+
+<div class="note" style="margin-top:26px;border-top:1px solid var(--line);padding-top:16px">
+  本台账记录每次分析的当时数据与判断，价格会随行情变化。<br>
+  所有结论为分析与情景推演，不构成投资建议；决策与风险由本人承担。
+</div>
+
+</body>
+</html>
