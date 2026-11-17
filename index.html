@@ -92,9 +92,64 @@
         padding:13px 16px;margin:14px 0 0;font-size:12.8px;color:#d9c9a8;line-height:1.85}
   .warn b{color:#ffcc66}
   .legend{margin:0 0 14px;color:var(--dim);font-size:12px}
+  .livebar{display:flex;flex-wrap:wrap;gap:14px;align-items:baseline;
+    background:#12171e;border:1px solid #262d36;border-radius:10px;
+    padding:12px 16px;margin-bottom:20px;font-size:13.5px;line-height:1.9}
+  .livebar .lv{white-space:nowrap}
+  .livebar .lv em{color:#8b97a6;font-style:normal;margin-right:5px}
+  .livebar .lv b{font-size:15px;font-variant-numeric:tabular-nums}
+  .livebar .lv i{font-style:normal;font-size:12.5px;margin-left:3px}
+  .livebar .lv-time{margin-left:auto;color:#5f6b7a;font-size:12px}
+  .livebar .lv-loading{color:#8b97a6}
 </style>
 </head>
 <body>
+
+<div id="livebar" class="livebar"><span class="lv-loading">实时行情加载中…</span></div>
+<script>
+(function(){
+  var Q = 'sh600977,sh603099,sh603607,sh000001,sz399001,sz399006';
+  var box = document.getElementById('livebar');
+  function parse(str){
+    var a = str.split('~'), ti = -1;
+    for (var i = 0; i < a.length; i++) { if (/^\d{14}$/.test(a[i])) { ti = i; break; } }
+    return { name: a[1], price: a[3],
+             chg: ti > 0 ? a[ti+1] : '0', pct: ti > 0 ? a[ti+2] : '0' };
+  }
+  function cls(p){ var n = parseFloat(p); return n > 0 ? 'up' : (n < 0 ? 'down' : 'flat'); }
+  function sign(p){ return parseFloat(p) > 0 ? '+' : ''; }
+  function render(){
+    var src = { sh600977: window.v_sh600977, sh603099: window.v_sh603099, sh603607: window.v_sh603607,
+                sh000001: window.v_sh000001, sz399001: window.v_sz399001, sz399006: window.v_sz399006 };
+    var out = [], ok = 0;
+    for (var k in src){
+      if (!src[k]) continue;
+      ok++;
+      var o = parse(src[k]);
+      out.push('<span class="lv"><em>' + o.name + '</em><b class="' + cls(o.pct) + '">' + o.price +
+               '</b><i class="' + cls(o.pct) + '">' + sign(o.pct) + o.pct + '%</i></span>');
+    }
+    if (!ok) return false;
+    var t = new Date(), z = function(n){ return ('0'+n).slice(-2); };
+    box.innerHTML = out.join('') + '<span class="lv-time">更新 ' +
+      z(t.getHours()) + ':' + z(t.getMinutes()) + ':' + z(t.getSeconds()) + '</span>';
+    return true;
+  }
+  function load(){
+    var s = document.createElement('script');
+    s.src = 'https://qt.gtimg.cn/q=' + Q + '&t=' + Date.now();
+    s.charset = 'gbk';
+    s.onload = function(){ render(); };
+    s.onerror = function(){
+      box.innerHTML = '<span class="lv-time">行情加载失败，点<a href="https://qt.gtimg.cn/q=' +
+        Q + '" target="_blank">此处</a>查看</span>';
+    };
+    document.head.appendChild(s);
+  }
+  load();
+  setInterval(load, 30000);
+})();
+</script>
 
 <h1>持仓分析台账</h1>
 <div class="sub">中国电影 600977 ｜ 长白山 603099 ｜ 2026-11-13 → 2026-11-17</div>
