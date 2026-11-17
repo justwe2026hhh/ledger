@@ -120,6 +120,60 @@
   .livebar .lv i{font-style:normal;font-size:12.5px;margin-left:3px}
   .livebar .lv-time{margin-left:auto;color:#5f6b7a;font-size:12px}
   .livebar .lv-loading{color:#8b97a6}
+
+  /* ===== 手机适配 ===== */
+  @media (max-width: 720px){
+    body{padding:14px 10px 40px;font-size:14.5px}
+    h1{font-size:19px;margin-bottom:4px}
+    .sub{font-size:12px;margin-bottom:16px}
+    h2{font-size:14px;margin:26px 0 10px}
+
+    /* 卡片：一行一个，字更大 */
+    .cards{gap:9px;margin-bottom:18px}
+    .card{flex:1 1 100%;padding:11px 14px;border-radius:9px}
+    .card .k{font-size:11.5px;margin-bottom:4px}
+    .card .v{font-size:17px}
+
+    /* Tab 横向可滑 */
+    .tabs{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;
+      gap:6px;padding-bottom:2px;margin-bottom:0}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs label{flex:0 0 auto;padding:9px 14px;font-size:13px;border-radius:9px 9px 0 0}
+
+    /* 表格 → 卡片 */
+    table,thead,tbody,tr,td,th{display:block;width:auto}
+    thead{display:none}
+    table{border:none;background:transparent;border-radius:0;overflow:visible}
+    tbody tr{background:var(--panel);border:1px solid var(--line);border-radius:10px;
+      margin-bottom:10px;padding:10px 13px}
+    tbody tr:hover{background:var(--panel)}
+    tbody td{border:none;padding:4px 0;font-size:13.5px;line-height:1.6}
+    tbody td::before{content:attr(data-label);display:block;color:#6f7d8c;
+      font-size:11px;letter-spacing:.4px;margin-bottom:1px}
+    tbody td:empty{display:none}
+    tbody tr td:first-child{padding-top:0}
+    tbody tr td:first-child::before{display:none}
+    tbody tr td:first-child{font-size:15px;font-weight:700;color:#e8eef6;
+      padding-bottom:6px;margin-bottom:4px;border-bottom:1px dashed #1f2731}
+
+    /* 行情条 */
+    .livebar{gap:6px 16px;padding:10px 13px;font-size:13px;border-radius:9px;margin-bottom:16px}
+    .livebar .lv b{font-size:14.5px}
+    .livebar .lv em{font-size:12px}
+    .livebar .lv-time{flex-basis:100%;margin-left:0;margin-top:2px}
+
+    /* 图片画廊 */
+    .gal{grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:9px}
+    .gal img{height:82px}
+    .gal figcaption{font-size:10px;padding:4px 6px}
+    .upl{gap:8px}
+    .upl button{padding:9px 15px;font-size:13px}
+    .upl .upl-tip{font-size:11.5px}
+
+    .warn{padding:11px 13px;font-size:12.5px}
+    .note{font-size:12px}
+    #ovl{padding:8px}
+  }
 </style>
 </head>
 <body>
@@ -558,6 +612,24 @@
           .catch(function(e){
             gal.innerHTML='<div class="empty">本设备不支持本地图片存储（可能是无痕模式）：'+e.message+'</div>';
           });
+})();
+</script>
+
+<script>
+/* 手机端：给每个 td 打上表头标签，供 CSS 卡片式布局显示 */
+(function(){
+  var tables = document.querySelectorAll('table');
+  for (var t = 0; t < tables.length; t++) {
+    var ths = tables[t].querySelectorAll('thead th');
+    if (!ths.length) continue;
+    var rows = tables[t].querySelectorAll('tbody tr');
+    for (var r = 0; r < rows.length; r++) {
+      var tds = rows[r].querySelectorAll('td');
+      for (var i = 0; i < tds.length; i++) {
+        if (ths[i]) tds[i].setAttribute('data-label', ths[i].textContent.trim());
+      }
+    }
+  }
 })();
 </script>
 
