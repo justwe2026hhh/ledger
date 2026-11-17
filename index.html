@@ -3,6 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function(){
+  var H = 'ada7683e';
+  function h(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)^s.charCodeAt(i))>>>0;}return x.toString(16);}
+  var ok = false;
+  for(var i=0;i<3;i++){
+    var p = window.prompt('请输入访问密码');
+    if(p === null) break;
+    if(h(p) === H){ ok = true; break; }
+    if(i < 2) window.alert('密码错误，请重试');
+  }
+  if(!ok){
+    try{ window.stop(); }catch(e){}
+    document.documentElement.innerHTML =
+      '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">' +
+      '<title>需要密码</title></head>' +
+      '<body style="margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;' +
+      'background:#0f1216;color:#d7dee8;font:15px/1.7 -apple-system,Segoe UI,Microsoft YaHei,sans-serif;text-align:center">' +
+      '<div><h2 style="font-weight:600;margin:0 0 8px">需要密码</h2>' +
+      '<p style="color:#8b97a6;margin:0">未通过验证，刷新页面重试</p></div></body>';
+  }
+})();
+</script>
 <title>持仓分析台账 · 中国电影 600977 / 长白山 603099</title>
 <style>
   :root{
