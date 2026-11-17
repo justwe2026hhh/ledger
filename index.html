@@ -6,12 +6,31 @@
 <script>
 (function(){
   var H = '5cb634c5';
+  var TTL = 7 * 24 * 60 * 60 * 1000;   // 7 天
+  var LS = 'dsh_ledger_unlock';
+
   function h(s){var x=5381;for(var i=0;i<s.length;i++){x=(((x<<5)+x)^s.charCodeAt(i))>>>0;}return x.toString(16);}
+
+  function unlocked(){
+    try{
+      var raw = localStorage.getItem(LS);
+      if(!raw) return false;
+      var o = JSON.parse(raw);
+      return !!o && o.h === H && (Date.now() - o.t) < TTL;
+    }catch(e){ return false; }
+  }
+
+  function mark(){
+    try{ localStorage.setItem(LS, JSON.stringify({ h: H, t: Date.now() })); }catch(e){}
+  }
+
+  if(unlocked()) return;
+
   var ok = false;
   for(var i=0;i<3;i++){
-    var p = window.prompt('请输入访问密码');
+    var p = window.prompt('请输入访问密码（7 天内免输）');
     if(p === null) break;
-    if(h(p) === H){ ok = true; break; }
+    if(h(p) === H){ ok = true; mark(); break; }
     if(i < 2) window.alert('密码错误，请重试');
   }
   if(!ok){
