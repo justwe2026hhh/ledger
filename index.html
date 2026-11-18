@@ -75,13 +75,15 @@
     background:#232c38;color:#9fb0c4;font-size:11.5px;font-weight:700}
   #d13:checked~.tabs label[for="d13"],
   #d16:checked~.tabs label[for="d16"],
-  #d17:checked~.tabs label[for="d17"]{background:var(--panel);color:#fff;
+  #d17:checked~.tabs label[for="d17"],
+  #d18:checked~.tabs label[for="d18"]{background:var(--panel);color:#fff;
     border-top:2px solid var(--blue)}
   #d13:checked~.tabs label[for="d13"] .cnt,
   #d16:checked~.tabs label[for="d16"] .cnt,
-  #d17:checked~.tabs label[for="d17"] .cnt{background:#1d3a5c;color:#8ec5ff}
+  #d17:checked~.tabs label[for="d17"] .cnt,
+  #d18:checked~.tabs label[for="d18"] .cnt{background:#1d3a5c;color:#8ec5ff}
   .panel{display:none}
-  #d13:checked~#p13,#d16:checked~#p16,#d17:checked~#p17{display:block}
+  #d13:checked~#p13,#d16:checked~#p16,#d17:checked~#p17,#d18:checked~#p18{display:block}
 
   table{width:100%;border-collapse:collapse;background:var(--panel);
         border:1px solid var(--line);border-radius:0 0 10px 10px;overflow:hidden}
@@ -269,10 +271,12 @@
   <span class="tag t-skip">跳过</span> 失效未执行
 </div>
 
-<input class="tabin" type="radio" name="day" id="d17" checked>
+<input class="tabin" type="radio" name="day" id="d18" checked>
+<input class="tabin" type="radio" name="day" id="d17">
 <input class="tabin" type="radio" name="day" id="d16">
 <input class="tabin" type="radio" name="day" id="d13">
 <nav class="tabs">
+  <label for="d18">11-18 周三 <span class="cnt">1</span></label>
   <label for="d17">11-17 周二 <span class="cnt">11</span></label>
   <label for="d16">11-16 周一 <span class="cnt">2</span></label>
   <label for="d13">11-13 周五 <span class="cnt">11</span></label>
@@ -385,6 +389,34 @@
 </section>
 
 <!-- ================= 11-17 ================= -->
+<section class="panel" id="p18">
+<div class="sum">
+  <div class="sum-h">当日总结 · 11-18 周三（10:10）</div>
+  <div class="sum-row"><span class="sum-n">中国电影</span><span class="sum-p up">15.49 +1.04%</span><span class="sum-c">1800 股 @16.044，浮亏 <b>-3.45%</b>（-997 元）。低开 15.30 后冲高 <b>15.78</b> 再回落，属超跌反抽，未站上成本</span></div>
+  <div class="sum-row"><span class="sum-n">长白山</span><span class="sum-p up">35.42 +0.88%</span><span class="sum-c">1800 股 @36.520，浮亏 <b>-3.01%</b>（-1,980 元）。盘中最低 <b>34.90 已破 35.05</b>，随后拉回</span></div>
+  <div class="sum-row"><span class="sum-n">京华激光</span><span class="sum-p down">16.75 -1.64%</span><span class="sum-c"><b>跌破 16.88，创 52 周新低</b>；观察池降级，等重新站回 16.88 再谈</span></div>
+  <div class="sum-row"><span class="sum-n">组合</span><span class="sum-p flat">仓位 29.1%</span><span class="sum-c">持仓市值 <b>91,638 元</b>、现金 <b>222,971 元</b>；浮亏合计 -2,977 元，占总资产 <b>-0.95%</b></span></div>
+  <div class="sum-row sum-key"><span class="sum-n">分析</span><span class="sum-p"></span><span class="sum-c">今天开盘是<b>分化</b>不是普跌：中影低开 15.30 后拉到 15.78（+3.1%）再回落，是超跌后的技术性反抽，但既没站上成本 16.044、也没收复昨天跌停位，反抽力度不足；长白山低开 <b>34.90 击穿 35.05</b> 后拉回 35.42，同样是弱反抽。真正弱的是板块——<b>文投、横店一字跌停</b>，说明昨天撬板的资金被埋，抛压仍在释放。京华激光独立跌破 52 周低，与板块无关，是自身趋势问题。</span></div>
+  <div class="sum-row sum-key"><span class="sum-n">操作建议</span><span class="sum-p"></span><span class="sum-c">中影距成本还差 3.6%：日内反弹到 <b>15.80—16.04 减 900 股</b>；跌破 <b>15.05 减 900 股</b>；跌破 14.50 清。长白山 <b>收盘若仍在 35.05 下方则减 900 股</b>，跌破 34.35 清。京华已破 16.88，<b>不接</b>，等站回 16.88 再观察。</span></div>
+</div>
+<table>
+<thead><tr>
+  <th style="width:64px">时间</th><th style="width:58px">类型</th><th style="width:82px">标的</th>
+  <th>关键数据</th><th style="width:33%">结论 / 动作</th><th style="width:78px">来源</th>
+</tr></thead>
+<tbody>
+<tr><td class="tm">10:10</td><td><span class="tag t-al">预警</span></td><td>京华激光</td>
+  <td>京华 <b>16.75(-1.64%)</b>，跌破 <b>16.88</b> 创 52 周新低；成交仅 4,486 手（0.25% 换手），缩量新低</td>
+  <td><span class="hl">⚠R18 触发</span>：观察池降级，<b>不接</b>；需重新站回 16.88 才恢复关注</td>
+  <td><a href="https://qt.gtimg.cn/q=sh603607" target="_blank">行情</a></td></tr>
+
+<tr><td class="tm">10:10</td><td><span class="tag t-an">盘面</span></td><td>组合</td>
+  <td>中影 15.49(+1.04%)、高 15.78；长白山 35.42(+0.88%)、低 34.90 破 35.05 后收回；<b>文投/横店一字跌停</b>；上证 -0.07%、科创50 +1.19%</td>
+  <td>开盘分化：两只持仓都是<b>弱反抽</b>，板块仍在崩塌。中影反弹至 <b>15.80—16.04</b> 减 900 股</td>
+  <td><a href="https://qt.gtimg.cn/q=sh600977,sh603099" target="_blank">行情</a></td></tr>
+</tbody>
+</table>
+</section>
 <section class="panel" id="p17">
 <div class="sum">
   <div class="sum-h">当日总结 · 11-17 周二（收盘 · 已按最新持仓）</div>
