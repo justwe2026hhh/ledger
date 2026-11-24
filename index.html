@@ -569,24 +569,55 @@
 </tbody>
 </table>
 
-<h3 style="font-size:14px;margin:18px 0 8px">③ 加仓：只回踩买，不追高</h3>
+<h3 style="font-size:14px;margin:18px 0 8px">③ 加仓：什么时候才能加（11-24 重写）</h3>
 <div class="warn" style="margin-bottom:10px">
-评分卡已达 <b>3/5</b>（C 若确认则 4/5），<b>达到加仓门槛</b>。
-但现价 <b>16.61（+4.53%）</b> 是高位，<b>不追</b>——台账上「追高」已记 2 次。
-</div>
-<table>
-<thead><tr><th style="width:52%">条件</th><th>动作</th></tr></thead>
-<tbody>
-<tr><td>回踩到 <b>16.00 — 16.10</b>（昨日高 16.13 回踩确认区）</td><td><b>加 1 份</b></td></tr>
-<tr><td>收盘前不回踩</td><td><b>放弃，不加</b>（4 份已吃到这波）</td></tr>
-<tr><td>回落跌破 <b>15.70</b></td><td><b>取消挂单</b></td></tr>
-</tbody>
-</table>
-<div class="note" style="margin-top:10px">
-实际已在 <b>16.36</b> 加 <b>2 份</b>：成本 15.820 → <b>16.000</b>；仓位 12.6% → <b>18.9%</b>。<br>
-<b>加仓已暂停</b>——仓位超阶段①上限（15%），且评分卡仅 3/5、量能不达标。
+<b>当前状态：加仓暂停。</b>仓位 <b>18.9%</b> 已越过阶段①上限（15%），评分卡仅 <b>3/5</b>，
+今日又留下 <b>5.6% 长上影</b>——三条都不支持继续加。
 </div>
 
+<h4 style="font-size:13px;margin:16px 0 8px;color:#9fb3c8">阶段仓位表（补上 15—40% 的中段）</h4>
+<table>
+<thead><tr><th style="width:20%">仓位区间</th><th style="width:22%">阶段</th><th>允许加仓的条件</th></tr></thead>
+<tbody>
+<tr><td><b>0—15%</b></td><td>① 试仓</td><td>评分卡 <b>≥3</b></td></tr>
+<tr><td class="hl2"><b>15—25%</b>（现在 18.9%）</td><td><b>①.5 补仓段</b></td><td><b>评分卡 ≥4 ＋ 放量突破</b></td></tr>
+<tr><td><b>25—40%</b></td><td>② 主升前段</td><td>评分卡 <b>5/5</b> ＋ 板块共振</td></tr>
+<tr><td><b>40—50%</b></td><td>② 主升</td><td>上映前 <b>1—2 个月</b></td></tr>
+<tr><td>50—70%</td><td>② 上限</td><td>全条件满足，<b>不满仓</b></td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:13px;margin:18px 0 8px;color:#9fb3c8">三种解锁情形（满足任一才加 1 份）</h4>
+<table>
+<thead><tr><th style="width:22%">情形</th><th style="width:34%">触发条件</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>A 放量突破</b><br><span class="flat">最强信号</span></td>
+  <td>单日成交 <b>≥ —手</b>（1.5× 5日均量 —）<br>且 <b>收盘 &gt; 16.80</b></td>
+  <td>同时满足 C 项（放量阳线突破）→ 评分卡升 <b>4/5</b>；也证明今日长上影是「试盘」不是「出货」</td></tr>
+<tr><td><b>B 时间窗口</b><br><span class="flat">被动等</span></td>
+  <td>距 <b>流浪地球3</b>（2027 春节档）<b>1—2 个月</b></td>
+  <td>现在约 75 天（2.5 个月），<b>还要再等约 45 天</b>；复联5 档期待核实</td></tr>
+<tr><td><b>C 回落止跌</b><br><span class="flat">摊薄用</span></td>
+  <td>回到 <b>15.20—15.50</b>（成本 16.000 下方）<br>且 <b>收盘站上 5 日线 ＋ 缩量 ＋ 不创新低</b></td>
+  <td>缺「不创新低」这一条就是<b>接刀</b>，不是摊薄</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:13px;margin:18px 0 8px;color:#9fb3c8">永不加仓的情况</h4>
+<table>
+<thead><tr><th style="width:40%">情况</th><th>原因</th></tr></thead>
+<tbody>
+<tr><td>收盘 <b>&lt; 15.70</b></td><td>止损层已触发，应减不该加</td></tr>
+<tr><td>评分卡 <b>&lt; 3</b></td><td>连试仓门槛都没到</td></tr>
+<tr><td>当日是<b>放量下跌</b>（量 &gt;1.5× 且 收阴）</td><td>卖压未衰竭</td></tr>
+<tr><td>板块出现<b>跌停</b></td><td>D 项归零</td></tr>
+</tbody>
+</table>
+
+<div class="note" style="margin-top:10px">
+<b>11-24 的实际加仓（2 份 @16.36）不属于以上任何一种情形</b>——当时评分卡 3/5、量能不达标、也没突破。
+<br>它达到的是「阶段①门槛（≥3 分）」，但仓位已越 15%，所以严格说不该在那一笔加。已记入台账「违背规则」。
+</div>
 <h3 style="font-size:14px;margin:18px 0 8px">④ 加仓改为两日确认</h3>
 <table>
 <thead><tr><th style="width:44%">原规则</th><th>新规则</th></tr></thead>
