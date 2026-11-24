@@ -324,7 +324,7 @@
 <thead><tr><th style="width:110px">条件</th><th>判定标准</th><th style="width:30%">当前（11-24 收盘）</th><th style="width:60px">得分</th></tr></thead>
 <tbody>
 <tr><td><b>A 止跌</b></td><td>连续 2 个交易日不创新低（今日最低 &gt; 昨日最低）</td><td>今收 <b>15.86</b> ≥ 昨日低 15.20 且 收 15.86 &gt; 开 15.70（阳线）→ <b>A 项成立（连续 2 日不创新低）</b></td><td class="up">1</td><td class="down">0</td></tr>
-<tr><td><b>B 缩量</b></td><td>当日成交量 &lt; 5 日均量的 <b>0.8 倍</b></td><td>成交 —手 ≈ 5日均量 <b>0.94 倍</b>（需 &lt;0.8）→ <b>B 项不成立</b></td><td class="down">0</td></tr>
+<tr><td><b>B 缩量</b></td><td>当日成交量 &lt; 5 日均量的 <b>0.8 倍</b></td><td>成交 49.98 万手 ≈ 5日均量 <b>0.94 倍</b>（需 &lt;0.8）→ <b>B 项不成立</b></td><td class="down">0</td></tr>
 <tr><td><b>C 反包</b></td><td>放量阳线（量 &gt; 5日均量 1.5 倍）且收盘站上 <b>MA5</b></td><td>收 15.86 &gt; MA5 <b>15.43</b>，阳线成立；但量仅 <b>0.94 倍</b>（需 1.5 倍）→ <b>C 项不成立</b></td><td class="up">1</td></tr>
 <tr><td><b>D 板块企稳</b></td><td>文投、横店、上海电影当日<b>无跌停</b></td><td>收盘：<b>文投 3.14(+10.18%) 涨停、横店 18.26(+10.00%) 涨停</b>（两只封住）、上海电影 34.16(+5.04%) → <b>无跌停</b></td><td class="up">1</td></tr>
 <tr><td><b>E 大盘止跌</b></td><td>上证 &gt; <b>-1%</b> 且 创业板 &gt; <b>-1.5%</b></td><td>上证 <b>+0.27%</b>、创业板 <b>-0.05%</b> → <b>双双达标</b>（创业板 &gt; -1.5%）</td><td class="up">1</td></tr>
@@ -357,7 +357,7 @@
 <tr><td>昨收 / 今开</td><td class="num">15.45 / 15.65</td><td>高开 1.29% 后回落，<b>冲高失败</b></td></tr>
 <tr><td>距 52 周低</td><td class="num up">+6.44%</td><td>52 周低 <b>14.44</b>（11-23 创出）</td></tr>
 <tr><td>距 MA20</td><td class="num down">-7.47%</td><td>MA20 约 <b>16.61</b>，趋势仍下行</td></tr>
-<tr><td>成交 / 换手</td><td class="num">—手 / 1.24%</td><td>全天量 ≈ 5 日均量 <b>0.81 倍</b>，<b>小幅缩量但不到 0.8 阈值</b></td></tr>
+<tr><td>成交 / 换手</td><td class="num">2.22 万手 / 1.24%</td><td>全天量 ≈ 5 日均量 <b>0.81 倍</b>，<b>小幅缩量但不到 0.8 阈值</b></td></tr>
 <tr><td>板块属性</td><td class="num">激光全息防伪</td><td>与影视<b>不同步</b>，不能共用 D 项</td></tr>
 </tbody>
 </table>
@@ -371,7 +371,7 @@
   <td>今收 15.37 ≥ 昨日低 14.44 但 <b>收 15.37 &lt; 开 15.65（阴线）</b> → 部分成立，需明日确认</td></tr>
 <tr><td><b>B 缩量</b><br><span class="flat">量 &lt; 0.8× 5日均量</span></td>
   <td class="down"><b>0</b></td>
-  <td>全天 —手 ≈ 5 日均量 <b>0.81 倍</b>（需 &lt;0.8）→ <b>差一点，不成立</b></td></tr>
+  <td>全天 2.22 万手 ≈ 5 日均量 <b>0.81 倍</b>（需 &lt;0.8）→ <b>差一点，不成立</b></td></tr>
 <tr><td><b>C 反包</b><br><span class="flat">放量阳线且收盘 &gt; MA5</span></td>
   <td class="down"><b>0</b></td>
   <td>收 <b>15.37 &lt; 开 15.65</b>（阴线），且低于 MA20 → <b>不成立</b></td></tr>
@@ -592,7 +592,7 @@
 <thead><tr><th style="width:22%">情形</th><th style="width:34%">触发条件</th><th>说明</th></tr></thead>
 <tbody>
 <tr><td><b>A 放量突破</b><br><span class="flat">最强信号</span></td>
-  <td>单日成交 <b>≥ —手</b>（1.5× 5日均量 —）<br>且 <b>收盘 &gt; 16.80</b></td>
+  <td>单日成交 <b>≥ 79.5 万手</b>（1.5× 5日均量 —）<br>且 <b>收盘 &gt; 16.80</b></td>
   <td>同时满足 C 项（放量阳线突破）→ 评分卡升 <b>4/5</b>；也证明今日长上影是「试盘」不是「出货」</td></tr>
 <tr><td><b>B 时间窗口</b><br><span class="flat">被动等</span></td>
   <td>距 <b>流浪地球3</b>（2027 春节档）<b>1—2 个月</b></td>
@@ -890,11 +890,11 @@
   <td><span class="hl">⚠R18 触发</span>：观察池<b>再降级</b>。板块反弹都不跟，说明是自身问题，<b>彻底不碰</b></td>
   <td><a href="https://qt.gtimg.cn/q=sh603607" target="_blank">行情</a></td></tr>
 <tr><td class="tm">13:10</td><td><span class="tag t-an">反转</span></td><td>板块</td>
-  <td><b>文投控股从跌停 2.46 拉到 2.88(+5.49%)</b>，日内振幅 <b>16.85%</b>、成交 —手；横店 13.87 → 15.16(-0.98%)。<b>中影翻红 15.49(+1.51%)</b></td>
+  <td><b>文投控股从跌停 2.46 拉到 2.88(+5.49%)</b>，日内振幅 <b>16.85%</b>、成交 646 万手；横店 13.87 → 15.16(-0.98%)。<b>中影翻红 15.49(+1.51%)</b></td>
   <td>评分卡 <b>D 项由 0.5 升到 1 分</b>（板块无一跌停，确认企稳），合计 <b>1/5</b>。但 A/B/C/E 仍不满足，**距 3 分门槛还差 2 分**，不加仓</td>
   <td><a href="https://qt.gtimg.cn/q=sh600715,sh600977" target="_blank">行情</a></td></tr>
 <tr><td class="tm">11:20</td><td><span class="tag t-an">转折</span></td><td>板块</td>
-  <td><b>文投控股从跌停打开</b>：2.46 → <b>2.67(-2.20%)</b>，成交 —手、换手 16.46%（巨量撬板）；横店 14.02 → <b>14.70(-3.98%)</b>；上海电影 31.30(-2.43%)。<b>板块当前无一只跌停</b></td>
+  <td><b>文投控股从跌停打开</b>：2.46 → <b>2.67(-2.20%)</b>，成交 471 万手、换手 16.46%（巨量撬板）；横店 14.02 → <b>14.70(-3.98%)</b>；上海电影 31.30(-2.43%)。<b>板块当前无一只跌停</b></td>
   <td>创业板从 -2.93% 回升到 <b>-1.72%</b>，上证 -2.07% → -1.63%。<b>评分卡 D 项可能转正（0.5/5）</b>，但 A/B/C/E 仍不满足，<b>不构成加仓条件</b></td>
   <td><a href="https://qt.gtimg.cn/q=sh600715,sh603103" target="_blank">行情</a></td></tr>
 <tr><td class="tm">10:30</td><td><span class="tag t-an">持仓</span></td><td>组合</td>
@@ -1012,7 +1012,7 @@
   <div class="sum-row"><span class="sum-n">长白山</span><span class="sum-p down">35.11 -1.46%</span><span class="sum-c">3 份 @36.520，浮亏 <b>-3.86%</b>（—）；收在日内低点附近（低 <b>35.05</b>），下一档 34.35</span></div>
   <div class="sum-row"><span class="sum-n">京华激光</span><span class="sum-p down">17.03 -0.29%</span><span class="sum-c">观察不交易。早盘冲 17.53 后回落收绿，未破 <b>16.88</b>；仍空头排列</span></div>
   <div class="sum-row"><span class="sum-n">组合</span><span class="sum-p flat">仓位 28.9%</span><span class="sum-c">持仓市值 <b>—</b>、现金 <b>—（70.9%）</b>；浮亏合计—，占总资产 <b>-1.22%</b></span></div>
-  <div class="sum-row sum-key"><span class="sum-n">分析</span><span class="sum-p"></span><span class="sum-c">中影开盘即破 16.20，随后连续跌破 15.50、15.20，盘中<b>触及跌停 15.05</b>，三道防线无一守住——这不是洗盘，是<b>资金定向撤离</b>。同板块 7 只票 3 只跌停、无一上涨，文投封单从 —手堆到 —手，抛压毫无衰减。反观科创50 <b>+0.62% 独红</b>，说明<b>钱去了科技，不是市场没钱</b>。</span></div>
+  <div class="sum-row sum-key"><span class="sum-n">分析</span><span class="sum-p"></span><span class="sum-c">中影开盘即破 16.20，随后连续跌破 15.50、15.20，盘中<b>触及跌停 15.05</b>，三道防线无一守住——这不是洗盘，是<b>资金定向撤离</b>。同板块 7 只票 3 只跌停、无一上涨，文投封单从 82 万手堆到 87 万手，抛压毫无衰减。反观科创50 <b>+0.62% 独红</b>，说明<b>钱去了科技，不是市场没钱</b>。</span></div>
   <div class="sum-row sum-key"><span class="sum-n">操作建议</span><span class="sum-p"></span><span class="sum-c">中影 3 份（@16.044）明日 T+1 解锁：反弹 <b>15.80—16.04</b> 减 1.5 份；跌破 <b>15.05</b> 减 1.5 份；跌破 <b>14.50</b> 清。长白山跌破 <b>35.05</b> 减 1.5 份、<b>34.35</b> 清。<b>70.9% 现金不急着补仓</b>，等影视板块放量止跌再谈。</span></div>
 </div>
 <table>
@@ -1030,7 +1030,7 @@
   <td>三道防线全破，<b>R6 已清仓</b>。全天成交 13.19 亿、换手 4.49%。上证 -0.50%、创业板 -1.20%、科创50 +0.62% → 科技独强</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977,sh603099,sh603607" target="_blank">行情</a></td></tr>
 <tr><td class="tm">14:20</td><td><span class="tag t-al">预警</span></td><td>中国电影</td>
-  <td>中影 <b>15.18(-9.21%)</b>，日内最低 <b>15.15</b>，跌破 15.20；距跌停 15.05 仅 0.86%；文投跌停封单堆到 <b>—手</b>、上海电影 -8.04%</td>
+  <td>中影 <b>15.18(-9.21%)</b>，日内最低 <b>15.15</b>，跌破 15.20；距跌停 15.05 仅 0.86%；文投跌停封单堆到 <b>69 万手</b>、上海电影 -8.04%</td>
   <td><span class="hl">⚠R6 触发：清掉全部剩余仓位</span>。不能挂低价等——跌停就卖不出去了</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977" target="_blank">行情</a></td></tr>
 
@@ -1047,11 +1047,11 @@
   <td>加入<b>观察池</b>，不交易。新低+缩量反抽 = 下跌中继概率大。进场需 <b>放量 ≥2倍 + 站上 18.84 + MACD 金叉</b>（当前 0/3）</td>
   <td><a href="https://qt.gtimg.cn/q=sh603607" target="_blank">行情</a></td></tr>
 <tr><td class="tm">11:00</td><td><span class="tag t-al">反转</span></td><td>组合</td>
-  <td>长白山 <b>35.72(+0.25%)</b> 站回 35.68 上方，高摸 35.91；文投从跌停撬至 <b>3.43(-8.29%)</b>、成交 —手；创业板 <b>+0.17%</b>、科创50 <b>+1.24%</b> 转红</td>
+  <td>长白山 <b>35.72(+0.25%)</b> 站回 35.68 上方，高摸 35.91；文投从跌停撬至 <b>3.43(-8.29%)</b>、成交 475 万手；创业板 <b>+0.17%</b>、科创50 <b>+1.24%</b> 转红</td>
   <td><span class="hl2">⚠R17 长白山破位被证伪</span>，防守位上移回 35.68（再破清剩余 1.5 份）；中影 15.76(-5.74%) 未跟涨，仍在 15.50 上方</td>
   <td><a href="https://qt.gtimg.cn/q=sh603099,sh600715" target="_blank">行情</a></td></tr>
 <tr><td class="tm">10:50</td><td><span class="tag t-an">关键</span></td><td>组合</td>
-  <td>中影 <b>15.71(-6.04%)</b>、新低 15.55；长白山 35.28；文投跌停卖单由 —手降至 <b>—手</b></td>
+  <td>中影 <b>15.71(-6.04%)</b>、新低 15.55；长白山 35.28；文投跌停卖单由 281 万手降至 <b>212 万手</b></td>
   <td>距 15.50 仅 <b>0.3%</b>；文投有撬板资金进场但未能开板，板块仍未修复</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977,sh600715" target="_blank">行情</a></td></tr>
 <tr><td class="tm">10:30</td><td><span class="tag t-an">关键</span></td><td>中国电影</td>
@@ -1063,7 +1063,7 @@
   <td><span class="hl2">背离确认</span>：大盘给出反弹窗口，资金仍在出货 → 属<b>定向派发</b>，不是系统性抛售</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977,s_sz399006" target="_blank">行情</a></td></tr>
 <tr><td class="tm">09:58</td><td><span class="tag t-al">预警</span></td><td>组合</td>
-  <td>中影 <b>16.04(-4.07%)</b> 跌破 16.20；文投 <b>3.37 跌停</b>（卖一 —手）、横店 <b>18.90 跌停</b>；长白山 35.47</td>
+  <td>中影 <b>16.04(-4.07%)</b> 跌破 16.20；文投 <b>3.37 跌停</b>（卖一 254 万手）、横店 <b>18.90 跌停</b>；长白山 35.47</td>
   <td><span class="hl">⚠R4 中影减半 · ⚠R12 龙头崩塌 · ⚠R8 长白山减 900</span>；剩余中影止损上移 15.50</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977,sh600715,sh603103" target="_blank">行情</a></td></tr>
 </tbody>
@@ -1115,7 +1115,7 @@
 
 <div class="sum">
   <div class="sum-h">当日总结 · 11-13 周五</div>
-  <div class="sum-row"><span class="sum-n">中国电影</span><span class="sum-p up">17.05 +10.00%</span><span class="sum-c">涨停但全天 <b>炸板 5 次</b>，收盘封单仅 —手（1.49%）→ <b>烂板</b>；成本 11.633，浮盈 <b>+46.56%</b></span></div>
+  <div class="sum-row"><span class="sum-n">中国电影</span><span class="sum-p up">17.05 +10.00%</span><span class="sum-c">涨停但全天 <b>炸板 5 次</b>，收盘封单仅 1.69 万手（1.49%）→ <b>烂板</b>；成本 11.633，浮盈 <b>+46.56%</b></span></div>
   <div class="sum-row"><span class="sum-n">长白山</span><span class="sum-p down">36.30 -3.12%</span><span class="sum-c">跌破成本 36.52，缩量阴跌（0.37×5日均量）；防守位下移至 <b>35.68</b></span></div>
   <div class="sum-row"><span class="sum-n">大盘</span><span class="sum-p down">上证 -0.59%</span><span class="sum-c">创业板 -3.32%；涨停 37 家、炸板率 <b>36.2%</b>、最高 4 板 → 判定 <b>退潮</b></span></div>
   <div class="sum-row sum-key"><span class="sum-n">分析</span><span class="sum-p"></span><span class="sum-c">中影这个涨停是<b>烂板</b>：全天炸板 5 次、收盘封单只剩 1.49%，典型的「用涨停掩护出货」；同期龙头文投封单 2.46 亿，是中影的 8.5 倍，说明它<b>不是资金主攻对象</b>。板块处在两周内第三次上攻的尾声，全市场炸板率 36.2%、涨停仅 37 家，情绪已进入退潮期。</span></div>
@@ -1172,7 +1172,7 @@
   <td>纠正“还有 15 个月”的错误；催化剂近在眼前，<span class="hl2">减仓幅度下调</span>至 1/4—1/3</td>
   <td><a href="https://m.gmw.cn/toutiao/2026-10/12/content_1304574568.htm" target="_blank">光明网</a></td></tr>
 <tr><td class="tm">12:46</td><td><span class="tag t-an">分析</span></td><td>中国电影</td>
-  <td>17.05 <span class="up">涨停 +10.00%</span>；封单 —手（2.99 亿）；半日成交 15.31 亿；换手 4.91%；均价 16.69</td>
+  <td>17.05 <span class="up">涨停 +10.00%</span>；封单 17.5 万手（2.99 亿）；半日成交 15.31 亿；换手 4.91%；均价 16.69</td>
   <td>17.05 撞 2026 年 1—2 月套牢区（17.22—17.47）下沿；建议先减 1/3—1/2</td>
   <td><a href="https://qt.gtimg.cn/q=sh600977" target="_blank">行情</a></td></tr>
 </tbody>
