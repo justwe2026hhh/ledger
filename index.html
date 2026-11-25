@@ -290,6 +290,7 @@
   <a href="#sec-stop">止损规则</a>
   <a href="#sec-main">投资主线</a>
   <a href="#sec-us">美股宏观</a>
+  <a href="#sec-sim">模拟仓</a>
   <a href="#sec-hist">历史记录</a>
 </nav>
 <div class="cards">
@@ -806,6 +807,75 @@
 </tbody>
 </table>
 
+<h2 id="sec-sim">模拟仓对比（11-26 起）</h2>
+<div class="warn" style="margin-bottom:14px">
+<b>规则：同一笔资金、同一个起点，我用纪律操作，你用你的判断，每日记录净值，定期对比。</b><br>
+<b>我不是推荐你照抄</b>——这是把我自己放进同一场考试里，让「纪律 vs 直觉」有可量化的答案。
+</div>
+
+<h3 style="font-size:14px;margin:18px 0 8px">起始状态（2026-11-25 收盘基准）</h3>
+<table>
+<thead><tr><th style="width:32%">项目</th><th>数值</th></tr></thead>
+<tbody>
+<tr><td>起始日期</td><td><b>2026-11-26（周四）开盘</b></td></tr>
+<tr><td>起始总资产</td><td><b>—</b>（= 你 11-25 收盘的总资产）</td></tr>
+<tr><td>起始持仓</td><td>中国电影 <b>6 份（6 份）</b>，成本 <b>16.000</b></td></tr>
+<tr><td>起始现金</td><td><b>—</b></td></tr>
+<tr><td>起始仓位</td><td><b>17.8%</b></td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:14px;margin:20px 0 8px">我的操作规则（比你的更严）</h3>
+<table>
+<thead><tr><th style="width:30%">规则</th><th>具体</th></tr></thead>
+<tbody>
+<tr><td><b>买入</b></td><td>评分卡 <b>≥3</b> 才买第一笔；<b>≥4</b> 加第二笔；<b>≥5</b> 才重仓。每次固定 <b>1 份</b>。</td></tr>
+<tr><td><b>卖出</b></td><td>收盘破 <b>当日最低</b> 减 2 份；破 <b>关键支撑</b> 再减 2 份；破 <b>深止损</b> 清仓。<b>不看盘中，看收盘。</b></td></tr>
+<tr><td><b>单票上限</b></td><td><b>25%</b>（比你的 15% 宽容，但绝不满仓）</td></tr>
+<tr><td><b>一票否决</b></td><td>评分卡 0—1 分时 <b>禁止任何买入</b>；大盘单日跌超 2% 时 <b>禁止买入</b></td></tr>
+<tr><td><b>纠错</b></td><td>买错后 <b>次日无条件减半</b>，不摊薄、不等待</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:14px;margin:20px 0 8px">净值对比（每日收盘更新）</h3>
+<table>
+<thead><tr>
+  <th style="width:14%">日期</th><th style="width:16%">模拟仓净值</th>
+  <th style="width:14%">模拟仓收益</th><th style="width:16%">你的净值</th>
+  <th style="width:14%">你的收益</th><th>差异</th>
+</tr></thead>
+<tbody>
+<tr><td><b>11-25</b></td><td><b>298,743</b></td><td class="flat">基准 0%</td><td><b>298,743</b></td><td class="flat">基准 0%</td><td class="flat">— 同起点</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:14px;margin:20px 0 8px">模拟仓操作台账</h3>
+<table>
+<thead><tr>
+  <th style="width:12%">日期</th><th style="width:11%">动作</th><th style="width:11%">价格</th>
+  <th style="width:9%">份数</th><th style="width:10%">评分</th><th>理由 / 结果</th>
+</tr></thead>
+<tbody>
+<tr><td>11-26</td><td class="flat">待开盘</td><td>—</td><td>—</td><td>—</td>
+  <td><b>首个决策待定。</b>评分卡 0/5，一票否决生效，<b>不买入</b>。持仓处置看开盘情景（见明日预案）</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:14px;margin:20px 0 8px">差异归因（对比的意义）</h3>
+<table>
+<thead><tr><th style="width:34%">差异来源</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>入场时机</b></td><td>你在评分卡 0/5、3/5 时各加过一次；我要求 <b>≥3 才买第一笔</b></td></tr>
+<tr><td><b>仓位控制</b></td><td>你 12.6% → 18.9%；我单票上限 25%，但每次只加 1 份</td></tr>
+<tr><td><b>止损执行</b></td><td>你 11-19 长白山该减没减拖到跌停；我破位当日收盘即减</td></tr>
+<tr><td><b>纠错速度</b></td><td>你买错后倾向摊薄；我买错后<b>次日减半</b></td></tr>
+</tbody>
+</table>
+
+<div class="note" style="margin-top:12px">
+<b>对比周期：</b>每 5 个交易日做一次小结，每 20 个交易日做一次阶段对比。<br>
+<b>注意：</b>模拟仓不含手续费与滑点（实际交易要扣），所以如果模拟仓跑赢，<b>真实差距会更大</b>。
+</div>
 <h2 id="sec-hist">历史日记录（点击展开）</h2>
 <details class="daybox" id="p1125" open>
 <summary><b>11-25 周三（收盘 · 止损击穿）</b> · 3 条记录</summary>
