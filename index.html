@@ -854,6 +854,36 @@
 </tbody>
 </table>
 
+<h3 style="font-size:14px;margin:20px 0 8px">离线补偿：错过的走势如何复原</h3>
+<div class="warn" style="margin-bottom:12px">
+<b>机器离线不算我的劣势。</b>每次发现离线，我用<b>分时数据逐分钟回放</b>，
+按同一套规则判断「那一刻我会做什么」，然后<b>照此记入模拟仓</b>，与实时操作等效。
+</div>
+<table>
+<thead><tr><th style="width:26%">项目</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>数据源</b></td><td><code>web.ifzq.gtimg.cn/appstock/app/minute/query?code=sh600977</code>（逐分钟价＋量）</td></tr>
+<tr><td><b>判据</b></td><td>与实时巡检<b>完全相同的规则</b>：14:30 后才做收盘判定、防洗盘（盘中插针不算）、份数无容差</td></tr>
+<tr><td><b>执行价</b></td><td>触发那一分钟的收盘价</td></tr>
+<tr><td><b>记录</b></td><td>操作台账注明「<b>离线复原</b>」及触发时刻</td></tr>
+</tbody>
+</table>
+
+<h4 style="font-size:13px;margin:16px 0 8px;color:#9fb3c8">11-26 实测复原结果</h4>
+<table>
+<thead><tr><th style="width:18%">价位</th><th style="width:20%">首次触发</th><th style="width:24%">是否收回</th><th>我的规则判定</th></tr></thead>
+<tbody>
+<tr><td><b>14.50</b>（深止损）</td><td>10:33 @ 14.49</td><td class="up"><b>10:34 收回 14.55</b>（停留 1 分钟）</td>
+  <td><b>不触发</b>——早于 14:30 且 1 分钟收回，属插针</td></tr>
+<tr><td>14.77（昨低）</td><td>09:34 @ 14.74</td><td class="up">09:47 收回 14.80（13 分钟）</td>
+  <td><b>不触发</b>——早于 14:30 判定时点</td></tr>
+<tr><td>14.00（清仓线）</td><td>未触及</td><td>—</td><td><b>不触发</b></td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:10px">
+<b>结论：今天我的规则一笔都不会动。</b>14.50 只在 10:33 破了 1 分钟，10:34 就回到 14.55——
+<b>这正是「防洗盘」规则存在的意义</b>：如果按盘中价机械止损，今天上午就会被洗出去。
+</div>
 <h3 style="font-size:14px;margin:20px 0 8px">风控（单票专用）</h3>
 <table>
 <thead><tr><th style="width:32%">约束</th><th>数值</th></tr></thead>
