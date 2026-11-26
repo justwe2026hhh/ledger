@@ -202,6 +202,15 @@
     .ac-v{font-size:14.5px}
     .jump a{font-size:11.5px;padding:4px 10px}
   }
+
+/* 评分卡说明行（横跨整表，避免撑破列宽） */
+.score-note{text-align:left !important;font-size:12.5px;line-height:1.75;background:rgba(255,255,255,.025);padding:10px 12px !important}
+/* 置顶 tab 高亮 */
+.jump a.tab-hl{background:#1f6feb;color:#fff !important;font-weight:700;border-color:#1f6feb}
+.jump a.tab-hl:hover{background:#388bfd}
+@media (max-width:768px){
+  .score-note{font-size:12px;padding:9px 10px !important}
+}
 </style>
 </head>
 <body>
@@ -290,6 +299,7 @@
 </div><div class="actbar-do"><b>今天做一件事：</b>挂 <b>16.10</b> 限价买 <b>1 份</b>中影；<b>止损 15.70</b>（看收盘，盘中插针不算）。京华 <b>不建仓</b>。</div>
 </div>
 <nav class="jump">
+  <a href="#sec-sim" class="tab-hl">📊 模拟仓对比</a>
   <a href="#sec-sum">今日总结</a>
   <a href="#sec-zcard">中影评分</a>
   <a href="#sec-jcard">京华评分</a>
@@ -298,9 +308,121 @@
   <a href="#sec-stop">止损规则</a>
   <a href="#sec-main">投资主线</a>
   <a href="#sec-us">美股宏观</a>
-  <a href="#sec-sim">模拟仓</a>
   <a href="#sec-hist">历史记录</a>
 </nav>
+<h2 id="sec-sim">模拟仓 vs 实盘 · 对比面板</h2>
+<div class="warn" style="margin-bottom:14px">
+<b>同一笔起始资金、同一只票（600977）、同一天起跑。</b>我的仓位按规则走，你的按你的判断走。<br>
+<b>⚠ 模拟仓不含手续费与滑点</b>，所以真实差距会比显示更大。
+</div>
+
+<h3 style="font-size:15px;margin:20px 0 10px">今日战报（11-26 收盘）</h3>
+<table>
+<thead><tr>
+  <th style="width:26%">项目</th><th style="width:22%">🤖 模拟仓（我）</th><th style="width:22%">👤 实盘（你）</th><th>差异</th>
+</tr></thead>
+<tbody>
+<tr><td>总资产</td><td class="num"><b>297,604</b></td><td class="num"><b>297,671</b></td><td class="up">你领先 <b>+67</b></td></tr>
+<tr><td>累计收益</td><td class="down"><b>-0.26%</b></td><td class="down"><b>-0.24%</b></td><td class="up">你领先 <b>0.02%</b></td></tr>
+<tr><td>持仓份数</td><td>6 份（减 2）</td><td><b>9 份（加 1）</b></td><td class="flat">方向相反</td></tr>
+<tr><td>持仓成本</td><td>15.782</td><td><b>15.645</b></td><td class="up">你的成本低 <b>0.14</b></td></tr>
+<tr><td>仓位</td><td><b>17.7%</b></td><td><b>26.6%</b></td><td class="flat">你重 <b>8.9pp</b></td></tr>
+<tr><td>持仓浮亏</td><td class="down">-7.17%</td><td class="down"><b>-6.36%</b></td><td class="up">你的浮亏小 <b>0.81pp</b></td></tr>
+<tr><td>现金</td><td>244,864（82.3%）</td><td>218,561（73.4%）</td><td class="flat">我现金多 <b>26,303</b></td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:15px;margin:22px 0 10px">逐日净值</h3>
+<table>
+<thead><tr>
+  <th style="width:11%">日期</th><th style="width:14%">🤖 模拟仓</th><th style="width:11%">收益</th>
+  <th style="width:14%">👤 实盘</th><th style="width:11%">收益</th>
+  <th>领先方</th>
+</tr></thead>
+<tbody>
+<tr><td><b>11-25</b></td><td class="num">298,372</td><td class="flat">基准</td><td class="num">298,372</td><td class="flat">基准</td><td class="flat">— 同起点（8 份 @15.782）</td></tr>
+<tr><td><b>11-26</b></td><td class="num">297,604</td><td class="down">-0.26%</td><td class="num">297,671</td><td class="down">-0.24%</td><td class="up"><b>实盘领先 +67</b></td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:15px;margin:22px 0 10px">操作对照（关键在这里）</h3>
+<table>
+<thead><tr>
+  <th style="width:10%">日期</th><th style="width:28%">🤖 我做了什么</th><th style="width:28%">👤 你做了什么</th><th>当时的评分卡 / 分歧点</th>
+</tr></thead>
+<tbody>
+<tr><td><b>11-25</b></td>
+  <td class="flat">不操作（起始基准）</td>
+  <td class="up"><b>加 2 份 @约15.13</b></td>
+  <td><b>评分 0/5（五项全灭）</b>。我在等信号，你在接刀 → <b>成本 16.000 → 15.782</b></td></tr>
+<tr><td><b>11-26</b></td>
+  <td class="down"><b>减 2 份 @14.65</b><br><span class="flat">R23：收 14.65 &lt; 昨低 14.77</span></td>
+  <td class="up"><b>加 1 份 @约14.55</b></td>
+  <td><b>评分 3/5，但 A 止跌与 C 反包均为 0</b>。我按规则减，你逆势加 → <b>成本 15.782 → 15.645</b>。方向完全相反</td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:15px;margin:22px 0 10px">关键指标对比</h3>
+<table>
+<thead><tr>
+  <th style="width:26%">指标</th><th style="width:22%">🤖 模拟仓</th><th style="width:22%">👤 实盘</th><th>谁更好</th>
+</tr></thead>
+<tbody>
+<tr><td>累计收益</td><td class="down">-0.26%</td><td class="down">-0.24%</td><td class="up">实盘</td></tr>
+<tr><td>最大回撤</td><td class="flat">-0.26%</td><td class="flat">-0.24%</td><td class="up">实盘</td></tr>
+<tr><td><b>收益 ÷ 最大回撤</b></td><td class="flat">—</td><td class="flat">—</td><td class="flat">样本不足，待积累</td></tr>
+<tr><td>交易胜率</td><td class="flat">—</td><td class="flat">—</td><td class="flat">待积累</td></tr>
+<tr><td>持仓成本</td><td>15.782</td><td class="up"><b>15.645</b></td><td class="up">实盘</td></tr>
+<tr><td>结构风险（浮亏 × 仓位）</td><td class="down">-1.27%</td><td class="down"><b>-1.69%</b></td><td class="up"><b>模拟仓</b>（回撤可控）</td></tr>
+</tbody>
+</table>
+<div class="note" style="margin-top:10px">
+<b>「结构风险」= 持仓浮亏率 × 仓位</b>，衡量组合层面的实际亏损敞口。<br>
+你的绝对浮亏更小，但<b>仓位重 8.9pp</b>，所以组合层面的风险敞口反而更大。
+</div>
+
+<h3 style="font-size:15px;margin:22px 0 10px">分歧记录（这份对比的核心）</h3>
+<table>
+<thead><tr><th style="width:24%">分歧点</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>① 低评分时该不该买</b></td>
+  <td>你在 11-25（0/5）加 2 份、11-26（3/5 但 A/C 为 0）加 1 份。<b>我在两天都没有买入动作。</b><br>
+      <span class="flat">观察点：如果中影反弹，你的低成本会占优；如果继续跌，你的敞口会放大亏损。</span></td></tr>
+<tr><td><b>② 破位时该不该减</b></td>
+  <td>11-26 收盘 14.65 破昨日低 14.77，<b>我按 R23 减 2 份，你加 1 份。</b><br>
+      <span class="flat">观察点：这是最直接的对立。同一时刻、同一价格区间，一个减一个加。</span></td></tr>
+<tr><td><b>③ 现金要不要留住</b></td>
+  <td>我留 82.3% 现金，你留 73.4%。<b>差距—。</b><br>
+      <span class="flat">观察点：下跌市中现金是仓位，上涨市中现金是拖累。</span></td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:15px;margin:22px 0 10px">规则（我的约束）</h3>
+<table>
+<thead><tr><th style="width:26%">规则</th><th>具体</th></tr></thead>
+<tbody>
+<tr><td>标的</td><td><b>只有中国电影 600977</b></td></tr>
+<tr><td>三档都可用</td><td>短线 1—5 日（<b>只做反T</b>）｜中线 1—3 月（评分 ≥3 加仓）｜长线 6—12 月（窗口前重仓）</td></tr>
+<tr><td>仓位上限</td><td><b>70%</b>（现金 ≥30%）｜反 T 单次 ≤2 份且当天买回</td></tr>
+<tr><td>买入闸门</td><td>评分 ≥3 <b>且 A 项（止跌）必须成立</b>；评分 0—2 分禁止一切买入；上证单日 ≤-2% 禁止买入</td></tr>
+<tr><td>卖出</td><td>收盘破当日低减 2 份；破深止损清仓；<b>只看收盘，不看盘中</b></td></tr>
+<tr><td>纠错</td><td>买错后<b>次日无条件减半</b></td></tr>
+</tbody>
+</table>
+
+<h3 style="font-size:15px;margin:22px 0 10px">离线补偿</h3>
+<div class="note">
+<b>机器离线不算我的劣势。</b>每次发现离线，用分时数据逐分钟回放，按同一套规则判断「那一刻我会做什么」，
+照此记入模拟仓，与实时操作等效，并标注「离线复原」。<br>
+<b>11-26 实测：</b>14.50 只在 10:33 破了 1 分钟（14.49），10:34 收回 14.55 → <b>我全程不动</b>；<b>14:43 之后收盘 14.65 才触发 R23</b>。
+</div>
+
+<div class="warn" style="margin-top:16px">
+<b>评价口径：</b>每 5 个交易日小结一次，每 20 个交易日做阶段对比。<br>
+<b>不只看绝对收益</b> —— 同时看「收益 ÷ 最大回撤」。用更小的风险赚同样的钱，才算真本事。
+</div>
+
+
 <div class="cards">
   <div class="card"><div class="k">中国电影 9 份 · 成本 15.645</div>
     <div class="v">14.65 <span class="down">-6.36%</span> <span class="flat">· 当日 -1.08%</span></div></div>
@@ -338,7 +460,8 @@
 <tr><td><b>C 反包</b></td><td>放量阳线（量 &gt; 5日均量 1.5 倍）且收盘站上 <b>MA5</b></td><td>收 <b>14.65 &lt; 开 15.03</b>（<b>阴线</b>）→ <b>C 项不成立</b></td><td class="down">0</td></tr>
 <tr><td><b>D 板块企稳</b></td><td>文投、横店、上海电影当日<b>无跌停</b></td><td>收盘：上海电影 29.36(-4.49%)、文投 2.65(-6.36%)、横店 16.00(-4.13%) → <b>无跌停，D 项成立</b></td><td class="up">1</td></tr>
 <tr><td><b>E 大盘止跌</b></td><td>上证 &gt; <b>-1%</b> 且 创业板 &gt; <b>-1.5%</b></td><td>上证 <b>+0.01%</b>、创业板 <b>+0.29%</b> → <b>双双达标</b></td><td class="up">1</td></tr>
-<tr><td colspan="3"><b>合计</b></td><td><b class="up">3 / 5</b>（B＋D＋E；<b>A 与 C 均不成立</b>）<br><span class="down"><b>⚠ 规则缺陷：3 分可由「缩量＋无跌停＋大盘稳」凑出，无任何看涨信号 → 已追加硬条件「A 项必须成立」</b></span></td></tr>
+<tr><td colspan="3"><b>合计</b></td><td><b class="up">3 / 5</b></td></tr>
+<tr><td colspan="4" class="score-note">B＋D＋E 达标；<b>A 止跌与 C 反包均不成立</b>。<span class="down">⚠ 规则缺陷：3 分可由「缩量＋无跌停＋大盘稳」凑出，<b>无任何看涨信号</b> → 已追加硬条件「<b>A 项必须成立</b>」</span></td></tr>
 </tbody>
 </table>
 
@@ -823,117 +946,6 @@
 </tbody>
 </table>
 
-<h2 id="sec-sim">模拟仓 vs 实盘 · 对比面板</h2>
-<div class="warn" style="margin-bottom:14px">
-<b>同一笔起始资金、同一只票（600977）、同一天起跑。</b>我的仓位按规则走，你的按你的判断走。<br>
-<b>⚠ 模拟仓不含手续费与滑点</b>，所以真实差距会比显示更大。
-</div>
-
-<h3 style="font-size:15px;margin:20px 0 10px">今日战报（11-26 收盘）</h3>
-<table>
-<thead><tr>
-  <th style="width:26%">项目</th><th style="width:22%">🤖 模拟仓（我）</th><th style="width:22%">👤 实盘（你）</th><th>差异</th>
-</tr></thead>
-<tbody>
-<tr><td>总资产</td><td class="num"><b>297,604</b></td><td class="num"><b>297,671</b></td><td class="up">你领先 <b>+67</b></td></tr>
-<tr><td>累计收益</td><td class="down"><b>-0.26%</b></td><td class="down"><b>-0.24%</b></td><td class="up">你领先 <b>0.02%</b></td></tr>
-<tr><td>持仓份数</td><td>6 份（减 2）</td><td><b>9 份（加 1）</b></td><td class="flat">方向相反</td></tr>
-<tr><td>持仓成本</td><td>15.782</td><td><b>15.645</b></td><td class="up">你的成本低 <b>0.14</b></td></tr>
-<tr><td>仓位</td><td><b>17.7%</b></td><td><b>26.6%</b></td><td class="flat">你重 <b>8.9pp</b></td></tr>
-<tr><td>持仓浮亏</td><td class="down">-7.17%</td><td class="down"><b>-6.36%</b></td><td class="up">你的浮亏小 <b>0.81pp</b></td></tr>
-<tr><td>现金</td><td>244,864（82.3%）</td><td>218,561（73.4%）</td><td class="flat">我现金多 <b>26,303</b></td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:15px;margin:22px 0 10px">逐日净值</h3>
-<table>
-<thead><tr>
-  <th style="width:11%">日期</th><th style="width:14%">🤖 模拟仓</th><th style="width:11%">收益</th>
-  <th style="width:14%">👤 实盘</th><th style="width:11%">收益</th>
-  <th>领先方</th>
-</tr></thead>
-<tbody>
-<tr><td><b>11-25</b></td><td class="num">298,372</td><td class="flat">基准</td><td class="num">298,372</td><td class="flat">基准</td><td class="flat">— 同起点（8 份 @15.782）</td></tr>
-<tr><td><b>11-26</b></td><td class="num">297,604</td><td class="down">-0.26%</td><td class="num">297,671</td><td class="down">-0.24%</td><td class="up"><b>实盘领先 +67</b></td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:15px;margin:22px 0 10px">操作对照（关键在这里）</h3>
-<table>
-<thead><tr>
-  <th style="width:10%">日期</th><th style="width:28%">🤖 我做了什么</th><th style="width:28%">👤 你做了什么</th><th>当时的评分卡 / 分歧点</th>
-</tr></thead>
-<tbody>
-<tr><td><b>11-25</b></td>
-  <td class="flat">不操作（起始基准）</td>
-  <td class="up"><b>加 2 份 @约15.13</b></td>
-  <td><b>评分 0/5（五项全灭）</b>。我在等信号，你在接刀 → <b>成本 16.000 → 15.782</b></td></tr>
-<tr><td><b>11-26</b></td>
-  <td class="down"><b>减 2 份 @14.65</b><br><span class="flat">R23：收 14.65 &lt; 昨低 14.77</span></td>
-  <td class="up"><b>加 1 份 @约14.55</b></td>
-  <td><b>评分 3/5，但 A 止跌与 C 反包均为 0</b>。我按规则减，你逆势加 → <b>成本 15.782 → 15.645</b>。方向完全相反</td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:15px;margin:22px 0 10px">关键指标对比</h3>
-<table>
-<thead><tr>
-  <th style="width:26%">指标</th><th style="width:22%">🤖 模拟仓</th><th style="width:22%">👤 实盘</th><th>谁更好</th>
-</tr></thead>
-<tbody>
-<tr><td>累计收益</td><td class="down">-0.26%</td><td class="down">-0.24%</td><td class="up">实盘</td></tr>
-<tr><td>最大回撤</td><td class="flat">-0.26%</td><td class="flat">-0.24%</td><td class="up">实盘</td></tr>
-<tr><td><b>收益 ÷ 最大回撤</b></td><td class="flat">—</td><td class="flat">—</td><td class="flat">样本不足，待积累</td></tr>
-<tr><td>交易胜率</td><td class="flat">—</td><td class="flat">—</td><td class="flat">待积累</td></tr>
-<tr><td>持仓成本</td><td>15.782</td><td class="up"><b>15.645</b></td><td class="up">实盘</td></tr>
-<tr><td>结构风险（浮亏 × 仓位）</td><td class="down">-1.27%</td><td class="down"><b>-1.69%</b></td><td class="up"><b>模拟仓</b>（回撤可控）</td></tr>
-</tbody>
-</table>
-<div class="note" style="margin-top:10px">
-<b>「结构风险」= 持仓浮亏率 × 仓位</b>，衡量组合层面的实际亏损敞口。<br>
-你的绝对浮亏更小，但<b>仓位重 8.9pp</b>，所以组合层面的风险敞口反而更大。
-</div>
-
-<h3 style="font-size:15px;margin:22px 0 10px">分歧记录（这份对比的核心）</h3>
-<table>
-<thead><tr><th style="width:24%">分歧点</th><th>说明</th></tr></thead>
-<tbody>
-<tr><td><b>① 低评分时该不该买</b></td>
-  <td>你在 11-25（0/5）加 2 份、11-26（3/5 但 A/C 为 0）加 1 份。<b>我在两天都没有买入动作。</b><br>
-      <span class="flat">观察点：如果中影反弹，你的低成本会占优；如果继续跌，你的敞口会放大亏损。</span></td></tr>
-<tr><td><b>② 破位时该不该减</b></td>
-  <td>11-26 收盘 14.65 破昨日低 14.77，<b>我按 R23 减 2 份，你加 1 份。</b><br>
-      <span class="flat">观察点：这是最直接的对立。同一时刻、同一价格区间，一个减一个加。</span></td></tr>
-<tr><td><b>③ 现金要不要留住</b></td>
-  <td>我留 82.3% 现金，你留 73.4%。<b>差距—。</b><br>
-      <span class="flat">观察点：下跌市中现金是仓位，上涨市中现金是拖累。</span></td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:15px;margin:22px 0 10px">规则（我的约束）</h3>
-<table>
-<thead><tr><th style="width:26%">规则</th><th>具体</th></tr></thead>
-<tbody>
-<tr><td>标的</td><td><b>只有中国电影 600977</b></td></tr>
-<tr><td>三档都可用</td><td>短线 1—5 日（<b>只做反T</b>）｜中线 1—3 月（评分 ≥3 加仓）｜长线 6—12 月（窗口前重仓）</td></tr>
-<tr><td>仓位上限</td><td><b>70%</b>（现金 ≥30%）｜反 T 单次 ≤2 份且当天买回</td></tr>
-<tr><td>买入闸门</td><td>评分 ≥3 <b>且 A 项（止跌）必须成立</b>；评分 0—2 分禁止一切买入；上证单日 ≤-2% 禁止买入</td></tr>
-<tr><td>卖出</td><td>收盘破当日低减 2 份；破深止损清仓；<b>只看收盘，不看盘中</b></td></tr>
-<tr><td>纠错</td><td>买错后<b>次日无条件减半</b></td></tr>
-</tbody>
-</table>
-
-<h3 style="font-size:15px;margin:22px 0 10px">离线补偿</h3>
-<div class="note">
-<b>机器离线不算我的劣势。</b>每次发现离线，用分时数据逐分钟回放，按同一套规则判断「那一刻我会做什么」，
-照此记入模拟仓，与实时操作等效，并标注「离线复原」。<br>
-<b>11-26 实测：</b>14.50 只在 10:33 破了 1 分钟（14.49），10:34 收回 14.55 → <b>我全程不动</b>；<b>14:43 之后收盘 14.65 才触发 R23</b>。
-</div>
-
-<div class="warn" style="margin-top:16px">
-<b>评价口径：</b>每 5 个交易日小结一次，每 20 个交易日做阶段对比。<br>
-<b>不只看绝对收益</b> —— 同时看「收益 ÷ 最大回撤」。用更小的风险赚同样的钱，才算真本事。
-</div>
 <h2 id="sec-hist">历史日记录（点击展开）</h2>
 <details class="daybox" id="p1126" open>
 <summary><b>11-26 周四（收盘）</b> · 5 条记录</summary>
