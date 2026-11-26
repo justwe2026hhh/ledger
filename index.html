@@ -375,22 +375,22 @@
 <thead><tr><th style="width:36%">条件</th><th style="width:12%">得分</th><th>当前依据</th></tr></thead>
 <tbody>
 <tr><td><b>A 止跌</b><br><span class="flat">连续 2 日不创新低</span></td>
-  <td class="flat"><b>0.5</b></td>
+  <td class="down"><b>0</b></td>
   <td>今收 <b>14.33 &lt; 昨日低 14.44</b> → <b>不成立，且创新低</b></td></tr>
 <tr><td><b>B 缩量</b><br><span class="flat">量 &lt; 0.8× 5日均量</span></td>
   <td class="down"><b>0</b></td>
-  <td>全天 2.19 万手 ≈ 5 日均量 <b>0.81 倍</b>（需 &lt;0.8）→ 不成立</td></tr>
+  <td>全天 2.89 万手 ≈ 5 日均量 <b>1.07 倍</b>（需 &lt;0.8）→ <b>放量，不成立</b></td></tr>
 <tr><td><b>C 反包</b><br><span class="flat">放量阳线且收盘 &gt; MA5</span></td>
   <td class="down"><b>0</b></td>
-  <td>收 <b>14.61 &lt; 开 15.16</b>（阴线）→ <b>不成立</b></td></tr>
+  <td>收 <b>14.33 &lt; 开 14.80</b>（阴线）→ <b>不成立</b></td></tr>
 <tr><td><b>D 趋势</b><br><span class="flat">收盘 &gt; MA20（16.61）</span></td>
   <td class="down"><b>0</b></td>
   <td>14.33 vs MA20 <b>16.07</b>，<b>差 10.8%</b>；持续下行</td></tr>
 <tr><td><b>E 大盘</b><br><span class="flat">上证 &gt; -1% 且 创业板 &gt; -1.5%</span></td>
   <td class="up"><b>1</b></td>
-  <td>上证 <b>-2.03%</b>、创业板 <b>-4.19%</b> → <b>不成立</b></td></tr>
-<tr><td><b>合计</b></td><td class="down"><b>0 / 5</b></td>
-  <td><b>不建仓</b>，距 3 分门槛还差 1.5 分</td></tr>
+  <td>上证 <b>+0.01%</b>、创业板 <b>+0.29%</b> → <b>达标</b></td></tr>
+<tr><td><b>合计</b></td><td class="up"><b>3 / 5</b></td>
+  <td>B＋D＋E 达标；<b>A 止跌与 C 反包均不成立</b>。⚠ <b>本次暴露规则缺陷</b>：3 分可由「缩量＋板块无跌停＋大盘稳」凑出，<b>没有任何看涨信号</b>。已追加硬条件：<b>A 项必须成立，否则 3 分也禁止加仓</b></td></tr>
 </tbody>
 </table>
 
